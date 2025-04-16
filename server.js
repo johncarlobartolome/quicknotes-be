@@ -3,11 +3,15 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import noteRoutes from "./routes/noteRoutes.js";
+
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/notes", noteRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
